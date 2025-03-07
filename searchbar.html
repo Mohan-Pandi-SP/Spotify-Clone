@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Search Bar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #121212;
+          
+        }
+        .navbar {
+            background-color: #000;
+        }
+        .search-container {
+            margin: 50px auto;
+            max-width: 600px;
+        }
+        .search-input {
+            background-color: #282828;
+            color: rgb(183, 75, 75);
+            border: outset;
+            border-radius: 50px;
+            padding: 10px ;
+        }
+        .search-input:focus {
+            outline: none;
+            box-shadow:  8px rgb(2, 250, 85);
+        }
+        .search-icon {
+            color: rgb(53, 8, 250);
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translatey(-50%);
+        }
+    </style>
+</head>
+<body>
+
+   
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fab fa-spotify"></i> Spotify</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <form class="d-flex ms-auto position-relative">
+                    <input class="form-control search-input" type="search" placeholder="Search for songs, artists..." aria-label="Search">
+                    <i class="fas fa-search search-icon"></i>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+  
+    <div class="container search-container">
+        <form class="position-relative">
+            <input class="form-control search-input" type="search" placeholder="Search for songs, artists..." aria-label="Search">
+            <i class="fas fa-search search-icon"></i>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background: #181818;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            width: 350px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #1DB954;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #1ed760;
+        }
+
+        .forgot-password, p a {
+            color: #1DB954;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover, p a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            margin: 20px 0;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .social-login {
+            background: #333;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .social-login:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify Logo" class="logo">
+        <h2>Sign in to Spotify</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email address or username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <a href="#" class="forgot-password">Forgot your password?</a>
+        <div class="divider">or</div>
+        <button class="social-login">Continue with Google</button>
+        <button class="social-login">Continue with Facebook</button>
+        <p>Don't have an account? <a href="#">Sign up for Spotify</a></p>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (email === "test@example.com" && password === "password123") {
+                alert("Login successful!");
+                window.location.href = "home.html";
+            } else {
+                alert("Invalid email or password.");
+            }
+        });
+    </script>
+</body>
+</html>

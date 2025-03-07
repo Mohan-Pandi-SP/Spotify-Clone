@@ -1,0 +1,151 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Support</title>
+    <link rel="C:\Users\karup\OneDrive\Desktop\mp's spotify\homepage.html">
+    <link rel="C:\Users\karup\OneDrive\Desktop\mp's spotify\support.html">
+    <link rel="C:\Users\karup\OneDrive\Desktop\mp's spotify\contact.html">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #121212;
+            color: white;
+        }
+
+        header {
+            background: #1DB954;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        nav a.active {
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .faq .question {
+            background: #282828;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .faq .answer {
+            display: none;
+            padding: 5px;
+        }
+
+        .contact-form {
+            margin-top: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input, textarea {
+            width: 80%;
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            background: #1DB954;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1ed760;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Spotify Support</h1>
+        <nav>
+            <a href="C:\Users\karup\OneDrive\Desktop\mp's spotify\homepage.html">Home</a>
+            <a href="C:\Users\karup\OneDrive\Desktop\mp's spotify\support.html" class="active">Support</a>
+            <a href="C:\Users\karup\OneDrive\Desktop\mp's spotify\contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="question">
+                <h3>How do I reset my password?</h3>
+                <p class="answer">Go to the login page, click "Forgot Password," and follow the instructions.</p>
+            </div>
+            <div class="question">
+                <h3>How can I cancel my subscription?</h3>
+                <p class="answer">Go to your account settings, select "Subscription," and click "Cancel."</p>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <h2>Contact Us</h2>
+            <form id="supportForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+            <p id="successMessage" style="display:none; color: green;">Thank you! We'll get back to you soon.</p>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questions = document.querySelectorAll(".question");
+
+            questions.forEach(question => {
+                question.addEventListener("click", function() {
+                    this.querySelector(".answer").classList.toggle("show");
+                    this.querySelector(".answer").style.display = 
+                        this.querySelector(".answer").style.display === "block" ? "none" : "block";
+                });
+            });
+
+            document.getElementById('supportForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevents page refresh
+
+                // Display success message
+                document.getElementById('successMessage').style.display = 'block';
+
+                // Clear form fields
+                document.getElementById('supportForm').reset();
+            });
+        });
+    </script>
+
+</body>
+</html>

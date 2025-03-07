@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Library</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            padding: 20px;
+        }
+
+        .library-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .library-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .library-header input {
+            padding: 8px;
+            width: 200px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .library-item {
+            background: #282828;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .library-item img {
+            width: 100%;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="library-container">
+        <div class="library-header">
+            <h1>Your Library</h1>
+            <input type="text" placeholder="Search Library..." id="search">
+        </div>
+        <div class="library-grid">
+          
+        </div>
+    </div>
+
+    <script>
+        const libraryGrid = document.querySelector('.library-grid');
+
+        const libraryData = [
+            { name: "Liked Songs", type: "Playlist", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjbvXSGtKSicEoaXjBRYRIbRQ_KnJ8ufm3Qw&s" },
+            { name: "Top searched Songs", type: "Playlist", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1rVN8-1BBBJ3pIZhnA7vt_wUPB1rhMQ5Lpw&s" },
+            { name: "Ilaiyaraja hits", type: "Playlist", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMoJpzbMKZLhoH3B2jbSd5P7c2Xj6KJca3WQ&s" },
+            { name: "Yesudas Hits", type: "Playlist", image: "https://sajeevdev.com/wp-content/uploads/2024/09/K.-J.-Yesudas.jpg" },
+            { name: "Instagram top of the year", type: "Playlist", image: "https://cdn.prod.website-files.com/64d5d3c5e3d17e8d68e7bd96/66ac74320bd51bac3cc1bbf2_Top%20Trending%20Songs%20for%20Instagram%20Reels-01.png" },
+            { name: "Yuvan Shankar Raja sleeping Pills", type: "Playlist", image: "https://d35kvm5iuwjt9t.cloudfront.net/dbimages/sfx334119.jpg" },
+            { name: "ARR all time Hits", type: "Playlist", image: "https://i.ytimg.com/vi/WpILgptU4iQ/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBsgUyh_MA8=&rs=AOn4CLAtp5k9l3FT-vJ3NmvjNjuQYxM_sQ" },
+            { name: "Anirudh all time hits", type: "Playlist", image: "https://orunewculture.com/wp-content/uploads/2024/10/AR-1-1024x724.jpg" },
+            { name: "XXX Tentactian", type: "Playlist", image: "https://www.rollingstone.com/wp-content/uploads/2018/06/xxxtentacion-legacy-46d1d3ca-6512-453f-817d-d39ac30d3af9.jpg?w=1581&h=1054&crop=1" },
+            { name: "Imagine dragon", type: "Playlist", image: "https://nypost.com/wp-content/uploads/sites/2/2018/11/imagine1a.jpg?quality=75&strip=all" },
+            { name: "SPB hits", type: "Playlist", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw27a4qnGGzHzZSU4rxash6B8HKDpxnoisPg&s" },
+            { name: "All Time top of the List", type: "Playlist", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbDkw5Vaakl5y7jWJn75GfwKpdslqoQW7hZQ&s" }
+
+        ];
+
+       
+        function loadLibrary() {
+            libraryGrid.innerHTML = "";
+            libraryData.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('library-item');
+                div.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <p>${item.name}</p>
+                    <small>${item.type}</small>
+                `;
+                libraryGrid.appendChild(div);
+            });
+        }
+
+        
+        document.getElementById('search').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filteredData = libraryData.filter(item => item.name.toLowerCase().includes(query));
+            libraryGrid.innerHTML = "";
+            filteredData.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('library-item');
+                div.innerHTML = `<img src="${item.image}" alt="${item.name}"><p>${item.name}</p>`;
+                libraryGrid.appendChild(div);
+            });
+        });
+
+        loadLibrary();
+    </script>
+</body>
+</html>

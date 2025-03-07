@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Download</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1DB954;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            margin: 50px;
+        }
+
+        button {
+            background-color: #1DB954;
+            border: none;
+            padding: 15px 30px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #17a447;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #1DB954;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Spotify Clone</h1>
+    </header>
+    <main>
+        <h2>Download Spotify</h2>
+        <p>Get the latest version of our music streaming app.</p>
+        <button id="downloadBtn">Download Now</button>
+        <p id="message"></p>
+    </main>
+    <script>
+        document.getElementById("downloadBtn").addEventListener("click", function() {
+            // Simulate file download
+            let message = document.getElementById("message");
+            message.innerText = "Downloading started...";
+            
+            // Simulate delay
+            setTimeout(() => {
+                message.innerText = "Download complete!";
+            }, 3000);
+
+            // Redirecting to a download link (Replace with actual file link)
+            window.location.href = "https://example.com/spotify-clone.zip";
+        });
+    </script>
+</body>
+</html>

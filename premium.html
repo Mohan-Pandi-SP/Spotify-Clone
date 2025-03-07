@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Premium</title>
+    <link rel="C:\Users\karup\OneDrive\Desktop\mp's spotify\homepage.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: white;
+        }
+
+        header {
+            background: #000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        header h1 {
+            color: #1DB954;
+        }
+
+     
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        nav a.active {
+            font-weight: bold;
+        }
+
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: #1DB954;
+            color: black;
+        }
+
+        .hero .btn {
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .plans {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .plan-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .plan {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .plan h3 {
+            margin-bottom: 10px;
+        }
+
+        .plan p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .plan ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .plan ul li {
+            margin: 5px 0;
+        }
+
+        .plan .btn {
+            background: #1DB954;
+            color: black;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            margin-top: 30px;
+        }
+
+       
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background: #000;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            header div {
+                display: block;
+            }
+        }
+
+       
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .modal-box h2 {
+            color: black;
+        }
+
+        .modal-box p {
+            color: black;
+        }
+
+        .modal-box button {
+            margin: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+
+        .modal-box #confirmBtn {
+            background: green;
+            color: white;
+        }
+
+        .modal-box #closeModal {
+            background: red;
+            color: white;
+        }
+
+      
+        .modal-overlay {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Spotify Premium</h1>
+        <nav>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link btn btn-success text-light px-3" href="C:\Users\karup\OneDrive\Desktop\mp's spotify\homepage.html">HomePagr</a></li>
+                    </ul>
+    </header>
+
+    <section class="hero">
+        <h2>Get Premium, Enjoy Ad-Free Music</h2>
+        <p>Listen to music without limits, anytime, anywhere.</p>
+        <button class="btn">Get Premium</button>
+    </section>
+
+    <section class="plans">
+        <h2>Choose Your Premium Plan</h2>
+        <div class="plan-container">
+            <div class="plan">
+                <h3>Individual</h3>
+                <p>$9.99/month</p>
+                <ul>
+                    <li>Ad-free music</li>
+                    <li>Offline Playback</li>
+                    <li>Unlimited Skips</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+            <div class="plan">
+                <h3>Duo</h3>
+                <p>$12.99/month</p>
+                <ul>
+                    <li>2 Accounts</li>
+                    <li>Ad-free music</li>
+                    <li>Offline Playback</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+            <div class="plan">
+                <h3>Family</h3>
+                <p>$14.99/month</p>
+                <ul>
+                    <li>Up to 6 Accounts</li>
+                    <li>Explicit Content Filter</li>
+                    <li>Ad-free music</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Spotify Clone. All rights reserved.</p>
+    </footer>
+
+    <div class="modal-overlay">
+        <div class="modal-box">
+            <h2>Upgrade to Premium</h2>
+            <p>Get unlimited music with no ads. Ready to subscribe?</p>
+            <button id="confirmBtn">Yes, Subscribe</button>
+            <button id="closeModal">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+      
+        const nav = document.querySelector("nav ul");
+        const navToggle = document.createElement("div");
+        navToggle.innerHTML = "&#9776;";
+        navToggle.style.cssText = "font-size: 24px; cursor: pointer; display: block; position: absolute; right: 20px; top: 20px; color: white;";
+        document.querySelector("header").appendChild(navToggle);
+
+        navToggle.addEventListener("click", () => {
+            nav.classList.toggle("show");
+        });
+
+        
+        const premiumButtons = document.querySelectorAll(".btn");
+        const modal = document.querySelector(".modal-overlay");
+        document.querySelector("#closeModal").addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        premiumButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                modal.style.display = "flex";
+            });
+        });
+    </script>
+</body>
+</html>

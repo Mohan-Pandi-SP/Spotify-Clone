@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="C:\Users\karup\OneDrive\Desktop\mp's spotify\homepage.html">
+    <link rel="C:\Users\karup\OneDrive\Desktop\mp's spotify\searchbar.html">
+    <link rel="C:\Users\karup\OneDrive\Desktop\mp's spotify\library.html">
+    <title>Spotify Clone</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            background-color: #121212;
+            color: white;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: auto;
+            background-color: #000;
+            padding: 20px;
+            height: auto;
+        }
+
+        .sidebar h2 {
+            color: #1DB954;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+
+        }
+
+        .songs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            gap: 20px;
+            justify-content: center;
+
+            button {
+                z-index: 1;
+                position: relative;
+                font-size: inherit;
+                font-family: inherit;
+                color: white;
+                padding: 0.5em 1em;
+                outline: none;
+                border: none;
+                background-color: hsl(236, 32%, 26%);
+            }
+
+            button::before {
+                content: '';
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: #1DB954;
+                transform-origin: center left;
+                transform: scaleX(0);
+                transition: transform 0.25s ease-in-out;
+            }
+
+            button:hover {
+                cursor: pointer;
+            }
+
+            button:hover::before {
+                transform-origin: center right;
+                transform: scaleX(1);
+            }
+
+
+        }
+
+        .song {
+            background: #181818;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+
+        }
+
+        .song img {
+            width: 100%;
+            height: 100px;
+            border-radius: 5px;
+
+        }
+
+        button {
+            background-color: #1DB954;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #000;
+            text-align: center;
+            padding: 10px;
+            transition: ease-in;
+            transform: scale(1.0);
+
+        }
+
+        .music-player p {
+            margin: 5px 0;
+        }
+
+        audio {
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Spotify Clone</h2>
+        <ul>
+
+            <li class="nav-item"><a class="nav-link btn btn-success text-light px-3"
+                    href="C:\Users\karup\OneDrive\Desktop\mp's spotify\homepage.html"></i>Home</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-success text-light px-3"
+                    href="C:\Users\karup\OneDrive\Desktop\mp's spotify\searchbar.html"></i>Search</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-success text-light px-3"
+                    href="C:\Users\karup\OneDrive\Desktop\mp's spotify\library.html"></i>Your Library</a></li>
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Trending Songs</h1>
+        <div class="songs-container">
+            <div class="song">
+                <img src="https://i.scdn.co/image/ab67616d0000b2732cd13beb4c7451696ad8f2e6" alt="Song 1">
+                <p>Song - Paathum Paakama</p>
+                <p>Artsist - Shankar Mahadevan</p>
+                <button onclick="playSong('Pathum Paakama.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://c.saavncdn.com/692/Mercury-Tamil-2018-20180420-500x500.jpg" alt="Song 2">
+                <p>Song - Oru Mara Nizhalil</p>
+                <p>Artsist - Santhosh Narayanan and Sathyaprakash</p>
+                <button onclick="playSong('Oru Mara Nizhalil.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://static.moviecrow.com/gallery/20250213/242171-Retro%20Kannadi%20Poove%20Song.jpg"
+                    alt="Song 3">
+                <p>Song - Kannadi Poove</p>
+                <p>Artsist - Santhosh Narayanan </p>
+                <button onclick="playSong(' Kannadi Poove.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://c.saavncdn.com/191/Sarvam-Tamil-2009-20230814164921-500x500.jpg" alt="Song 4">
+                <p>Song - Sutta Suriyaney</p>
+                <p>Artsist - Yuvan Shankar Raja</p>
+                <button onclick="playSong('Sutta Suriyaney.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://i.scdn.co/image/ab67616d0000b27346ff4f826b735b07b57457fb" alt="Song 5">
+                <p>Song - Polladha Boomi</p>
+                <p>Artsist - G.V.Prakash kumar</p>
+                <button onclick="playSong(' Polladha Boomi.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://static.toiimg.com/thumb/msid-44845703,width-1070,height-580,imgsize-31114,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg"
+                    alt="Song 6">
+                <p>Song - Aathi</p>
+                <p>Artsist - Anirudh Ravichandar</p>
+                <button onclick="playSong(' Aathi.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://i.ytimg.com/vi/U6tA4gTZ8d4/sddefault.jpg" alt="Song 7">
+                <p>Song -Enna Soola Poogirai</p>
+                <p>Artsist - AR Rahman </p>
+                <button onclick="playSong('Enna Soola Poogirai.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://miro.medium.com/v2/resize:fit:1200/1*UEcCveksGk0yhLfN8M7xUQ.jpeg" alt="Song 8">
+                <p>Song -Thakida Thakida</p>
+                <p>Artsist - Santhosh Narayanan</p>
+                <button onclick="playSong('Thakida Thakida.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84651dd6130bbb152183accfe1"
+                    alt="Song 9">
+                <p>Song - Yendi Vittu Pona</p>
+                <p>Artsist - Leon James and S.T.R</p>
+                <button onclick="playSong('Yendi Vittu Pona.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://i.ytimg.com/vi/WR8PyAhn6tQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB71OeqReW-iAiZ4B6cE7jIY2vxyg"
+                    alt="Song 10">
+                <p>Song -Vidamuyarchi Title Song</p>
+                <p>Artsist - Anirudh Ravichandar</p>
+                <button onclick="playSong('Pathikichu.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://static.toiimg.com/thumb/msid-114271161,width-1280,height-720,imgsize-79420,resizemode-6,overlay-toi_sw,pt-32,y_pad-40/photo.jpg"
+                    alt="Song 9">
+                <p>Song - Dhhema Dheema</p>
+                <p>Artsist - Anirudh Ravichandar</p>
+                <button onclick="playSong('Dheema Dheema.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://i.ytimg.com/vi/tTaKnjPbOPU/maxresdefault.jpg" alt="Song 9">
+                <p>Song - Ka Ka Ka Po</p>
+                <p>Artsist - Santhosh Narayanan</p>
+                <button onclick="playSong('Ka Ka Ka Po.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://img10.hotstar.com/image/upload/f_auto/sources/r1/cms/prod/4918/1374918-i-300bc8c9e03e"
+                    alt="Song 9">
+                <p>Song - Endha Pakkam Kanum Pothum</p>
+                <p>Artsist - Yuvan Shankar Raja</p>
+                <button onclick="playSong('Endha Pakkam Kanum Pothum.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/1_65_1-sixteen_nine.jpg?size=948:533"
+                    alt="Song 9">
+                <p>Song - Naa Ready </p>
+                <p>Artsist - Anirudh Ravichandar</p>
+                <button onclick="playSong(' Naa Ready .mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRHXKkqGi72S67qk8GRTEtWe7ZN7cdGROMxA&s"
+                    alt="Song 9">
+                <p>Song - Machi Open the Bottle</p>
+                <p>Artsist - Yuvan Shankar Raja </p>
+                <button onclick="playSong('Machi Open the Bottle.mp3')">Play</button>
+            </div>
+            <div class="song">
+                <img src="https://images.indianexpress.com/2024/02/Sajni-edited.jpg" alt="Song 9">
+                <p>Song - Sajni </p>
+                <p>Artsist - Arjith Singh</p>
+                <button onclick="playSong('sajni.mp3')">Play</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <p id="current-song">No song playing</p>
+        <audio id="audio-player" controls></audio>
+    </div>
+
+    <script>
+        function playSong(song) {
+            const audioPlayer = document.getElementById("audio-player");
+            const currentSong = document.getElementById("current-song");
+
+            audioPlayer.src = `assets/${song}`;
+            audioPlayer.play();
+            currentSong.textContent = `Now Playing: ${song}`;
+        }
+    </script>
+
+</body>
+
+</html>
